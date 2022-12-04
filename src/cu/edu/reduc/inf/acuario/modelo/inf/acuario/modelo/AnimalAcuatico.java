@@ -1,4 +1,4 @@
-package modelo;
+package cu.edu.reduc.inf.acuario.modelo.inf.acuario.modelo;
 
 import java.util.Date;
 
@@ -11,6 +11,38 @@ public class AnimalAcuatico extends EspecieAcuatica{
     private boolean participaEnEspectaculo;
     private Date fechaDeInicioEspectaculo;
     private String nombreDelEntrenador;
+
+
+    // Constructor
+
+    public AnimalAcuatico(int id, String nombreCientifico, String familia, String habitatNatural, String nombre,
+                          int edad, String categoria, boolean reproducidoEnCautiverio, boolean participaEnEspectaculo,
+                          Date fechaDeInicioEspectaculo, String nombreDelEntrenador) {
+        super(id, nombreCientifico, familia, habitatNatural);
+
+        this.nombre = nombre;
+        this.edad = edad;
+        this.categoria = categoria;
+        this.reproducidoEnCautiverio = reproducidoEnCautiverio;
+        this.participaEnEspectaculo = participaEnEspectaculo;
+        this.fechaDeInicioEspectaculo = fechaDeInicioEspectaculo;
+        this.nombreDelEntrenador = nombreDelEntrenador;
+    }
+
+    public float indiceDeAceptacion(){
+        float aceptacion = super.indiceDeAceptacion();
+        if (this.getReproducidoEnCautiverio()) aceptacion += 0.1F;
+        if (this.getParticipaEnEspectaculo()) aceptacion += 0.5F;
+        aceptacion += this.getEdad() / 100.00;
+        return aceptacion;
+    }
+
+    public String toString(){
+        return this.getId() + "\n" + this.getNombre() + "\n" + this.getNombreCientifico() + "\n" + this.getEdad()
+                + "\n" + this.getFamilia() + "\n" + this.getCategoria() + "\n" + this.getReproducidoEnCautiverio()
+                + "\n" + this.getParticipaEnEspectaculo() + "\n" + this.getFechaDeInicioEspectaculo()
+                + "\n" + this.getNombreDelEntrenador();
+    }
 
     public void setNombre(String value) { this.nombre = value; }
     public String getNombre() { return this.nombre; }
@@ -42,11 +74,11 @@ public class AnimalAcuatico extends EspecieAcuatica{
     //acept += (self.edad / 100)
     //        return round(acept, 2) ///
 
-    public double indiceDeAceptacion() {
+    //public double indiceDeAceptacion() {
 
-        if (getReproducidoEnCautiverio()){
+      //  if (getReproducidoEnCautiverio()){
 
-        }
+        //}
 
-    }
+    //}
 }

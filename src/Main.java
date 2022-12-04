@@ -1,14 +1,15 @@
-import modelo.AnimalAcuatico;
+import cu.edu.reduc.inf.acuario.modelo.inf.acuario.modelo.AnimalAcuatico;
 
 public class Main {
     public static void main(String[] args) {
 
-        AnimalAcuatico all = new AnimalAcuatico();
-        all.setId(23);
-        all.setNombreCientifico("Pocus varuatus");
-        all.setFamilia("Variatus Mehitus");
-        all.setHabitatNatural("MellHorne");
+        //AnimalAcuatico all = new AnimalAcuatico(23, "asd", "asdf", "rio", "bart", 6, "hvhjv", true, true, "Pepe");
+        // Date stringInDateFormat= new SimpleDateFormat("dd/MM/yyyy").parse(value)
+        //all.setId(23);
+        //all.setNombreCientifico("Pocus varuatus");
+        //all.setFamilia("Variatus Mehitus");
+        //all.setHabitatNatural("MellHorne");
 
-        System.out.println(all.getFamilia());
+        //System.out.println(all);
     }
 }
