@@ -1,4 +1,4 @@
-package cu.edu.reduc.inf.acuario.modelo.inf.acuario.modelo;
+package cu.edu.reduc.inf.acuario.modelo;
 
 import java.text.DecimalFormat;
 import java.util.Objects;
@@ -33,6 +33,6 @@ public class EspecieAcuatica{
     public String getHabitatNatural() { return this.habitatNatural; }
     public void setHabitatNatural(String value) { this.habitatNatural = value; }
 
-    public boolean esIdDeEspecie(int id) {return this.id == id;}
+    public boolean esIdDeEspecie(int id) {return this.getId() == id;}
 
 }

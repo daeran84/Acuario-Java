@@ -1,11 +1,10 @@
-package cu.edu.reduc.inf.acuario.modelo.inf.acuario.modelo;
+package cu.edu.reduc.inf.acuario.modelo;
 
 import java.text.DecimalFormat;
 
 public class PlantaAcuatica extends EspecieAcuatica{
     private int numeroDeEjemplares;
     private boolean esDeAguasProfundas;
-    DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
     public PlantaAcuatica(int id, String nombreCientifico, String familia, String habitatNatural,
                           int numeroDeEjemplares, boolean esDeAguasProfundas) {

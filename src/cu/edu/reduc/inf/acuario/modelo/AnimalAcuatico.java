@@ -1,5 +1,7 @@
-package cu.edu.reduc.inf.acuario.modelo.inf.acuario.modelo;
+package cu.edu.reduc.inf.acuario.modelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AnimalAcuatico extends EspecieAcuatica{
@@ -59,26 +61,12 @@ public class AnimalAcuatico extends EspecieAcuatica{
     public void setParticipaEnEspectaculo(boolean value) { this.participaEnEspectaculo = value; }
     public boolean getParticipaEnEspectaculo() { return this.participaEnEspectaculo; }
 
-    public void setFechaDeInicioEspectaculo(Date value) { this.fechaDeInicioEspectaculo = value; }
+    public void setFechaDeInicioEspectaculo(String value) throws ParseException {
+        this.fechaDeInicioEspectaculo = SimpleDateFormat.getDateInstance().parse(value);
+    }
     public Date getFechaDeInicioEspectaculo() { return this.fechaDeInicioEspectaculo; }
 
     public void setNombreDelEntrenador(String value) { this.nombreDelEntrenador = value; }
     public String getNombreDelEntrenador() { return this.nombreDelEntrenador; }
 
-    //def ind_acep(self):
-    //acept = EspecieAcuatica.ind_acep(self)
-    //        if self.reproducido_en_cautiverio == 'Si':
-    //acept += 0.1
-    //        if self.espectaculo == 'Si':
-    //acept += 0.5
-    //acept += (self.edad / 100)
-    //        return round(acept, 2) ///
-
-    //public double indiceDeAceptacion() {
-
-      //  if (getReproducidoEnCautiverio()){
-
-        //}
-
-    //}
 }

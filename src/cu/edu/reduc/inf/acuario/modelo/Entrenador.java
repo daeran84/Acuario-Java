@@ -1,4 +1,4 @@
-package cu.edu.reduc.inf.acuario.modelo.inf.acuario.modelo;
+package cu.edu.reduc.inf.acuario.modelo;
 import java.util.Date;
 
 public class Entrenador {

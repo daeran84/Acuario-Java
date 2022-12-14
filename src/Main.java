@@ -1,5 +1,3 @@
-import cu.edu.reduc.inf.acuario.modelo.inf.acuario.modelo.AnimalAcuatico;
-
 public class Main {
     public static void main(String[] args) {
 
