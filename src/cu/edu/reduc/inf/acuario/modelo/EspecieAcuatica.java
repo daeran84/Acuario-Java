@@ -15,11 +15,12 @@ public class EspecieAcuatica{
         this.habitatNatural = habitatNatural;
     }
 
+    public boolean esIdDeEspecie(int id) {return this.getId() == id;}
     public  float indiceDeAceptacion() {
         if (Objects.equals(this.habitatNatural, "rio")) {
             return 0.75F;
         }
-        return 0.9F;
+        return 0.90F;
     }
     public int getId() { return this.id; }
     public void setId(int value) { this.id = value; }
@@ -33,6 +34,5 @@ public class EspecieAcuatica{
     public String getHabitatNatural() { return this.habitatNatural; }
     public void setHabitatNatural(String value) { this.habitatNatural = value; }
 
-    public boolean esIdDeEspecie(int id) {return this.getId() == id;}
 
 }

@@ -1,5 +1,6 @@
 package cu.edu.reduc.inf.acuario.modelo;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,18 +33,21 @@ public class AnimalAcuatico extends EspecieAcuatica{
     }
 
     public float indiceDeAceptacion(){
+        DecimalFormat d = new DecimalFormat("0.00");
         float aceptacion = super.indiceDeAceptacion();
-        if (this.getReproducidoEnCautiverio()) aceptacion += 0.1F;
-        if (this.getParticipaEnEspectaculo()) aceptacion += 0.5F;
-        aceptacion += this.getEdad() / 100.00;
+        if (this.getReproducidoEnCautiverio()) aceptacion += 0.10F;
+        if (this.getParticipaEnEspectaculo()) aceptacion += 0.50F;
+        aceptacion += this.getEdad() / 100.00F;
         return aceptacion;
     }
 
     public String toString(){
-        return this.getId() + "\n" + this.getNombre() + "\n" + this.getNombreCientifico() + "\n" + this.getEdad()
-                + "\n" + this.getFamilia() + "\n" + this.getCategoria() + "\n" + this.getReproducidoEnCautiverio()
-                + "\n" + this.getParticipaEnEspectaculo() + "\n" + this.getFechaDeInicioEspectaculo()
-                + "\n" + this.getNombreDelEntrenador();
+        return "ID: " + this.getId() + " Nombre: " + this.getNombre() + " Nombre Cientifico: " + this.getNombreCientifico()
+                + " Edad: " + this.getEdad() + " Familia: " + this.getFamilia() + " Categoria: " + this.getCategoria()
+                + " Reproducido en cautiverio: " + this.getReproducidoEnCautiverio()
+                + " Participa en Espectaculos: " + this.getParticipaEnEspectaculo()
+                + " Fecha de inicio de participacion en Espectaculos:" + this.getFechaDeInicioEspectaculo()
+                + " Entrenador: " + this.getNombreDelEntrenador() + "\n";
     }
 
     public void setNombre(String value) { this.nombre = value; }

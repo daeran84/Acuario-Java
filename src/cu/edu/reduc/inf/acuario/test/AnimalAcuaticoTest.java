@@ -1,5 +1,6 @@
-package cu.edu.reduc.inf.acuario.modelo;
+package cu.edu.reduc.inf.acuario.test;
 
+import cu.edu.reduc.inf.acuario.modelo.AnimalAcuatico;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
@@ -113,6 +114,14 @@ class AnimalAcuaticoTest {
         assertEquals("Pedro Hernandez Gonzalez", animal2.getNombreDelEntrenador());
         assertNull(animal3.getNombreDelEntrenador());
         assertNull(animal4.getNombreDelEntrenador());
+    }
+
+    @Test
+    void indiceDeAceptacion(){
+        assertEquals(1.03, animal1.indiceDeAceptacion());
+        assertEquals(1.53, animal2.indiceDeAceptacion());
+        assertEquals(1.01, animal3.indiceDeAceptacion());
+        assertEquals(1.02, animal4.indiceDeAceptacion());
     }
 
 }
