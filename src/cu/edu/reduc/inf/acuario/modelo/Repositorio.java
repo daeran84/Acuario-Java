@@ -7,21 +7,6 @@ import java.util.List;
 public class Repositorio {
     private ArrayList<EspecieAcuatica> listaDeEspecieAcuatica = new ArrayList<>();
 
-    // Functions for Lists
-    // Species list
-    /* REFERENCIA DEL PROYECTO EN PYTHON
-
-    def ind_especie(self, id_esp):  # OK
-        for i in range(len(self.__lista_especies)):
-            if self.__lista_especies[i].es_id_especie(id_esp):
-            return i
-    def eliminar_especie(self, id_esp):  # OK
-        ind = self.ind_especie(id_esp)
-        if ind is None:
-            raise Exception('Ese registro no existe')
-        self.__lista_especies.remove(self.__lista_especies[ind])
-    */
-
     public boolean existeIdDeEspecie(int id){
         for (int i = 0; i < this.getListaDeEspecieAcuatica().size(); i++){
             if (this.getListaDeEspecieAcuatica().get(i).esIdDeEspecie(id)) { return true;}
@@ -45,7 +30,7 @@ public class Repositorio {
         else System.out.println("Animal con ese ID ya existe en la lista");
     }
 
-    public boolean actualizarEspecieAcuatica(int id, EspecieAcuatica especieAcuatica){
+    public boolean actualizarEspecieAcuatica(int id, EspecieAcuatica especieAcuatica){ //REVISAR FUNCION
         for (int i = 0; i < this.getListaDeEspecieAcuatica().size(); i++){
             if (this.getListaDeEspecieAcuatica().get(i).esIdDeEspecie(id)) {
                 this.listaDeEspecieAcuatica.set( i, especieAcuatica);

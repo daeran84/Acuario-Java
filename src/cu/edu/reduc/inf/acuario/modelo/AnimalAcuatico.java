@@ -42,11 +42,11 @@ public class AnimalAcuatico extends EspecieAcuatica{
     }
 
     public String toString(){
-        return "ID: " + this.getId() + " Nombre: " + this.getNombre() + " Nombre Cientifico: " + this.getNombreCientifico()
-                + " Edad: " + this.getEdad() + " Familia: " + this.getFamilia() + " Categoria: " + this.getCategoria()
-                + " Reproducido en cautiverio: " + this.getReproducidoEnCautiverio()
+        return "Animal Acuático - ID: " + this.getId() + " Nombre: " + this.getNombre() + " Nombre Cientifíco: "
+                + this.getNombreCientifico() + " Edad: " + this.getEdad() + " Familia: " + this.getFamilia()
+                + " Categoria: " + this.getCategoria() + " Reproducido en cautiverio: " + this.getReproducidoEnCautiverio()
                 + " Participa en Espectaculos: " + this.getParticipaEnEspectaculo()
-                + " Fecha de inicio de participacion en Espectaculos:" + this.getFechaDeInicioEspectaculo()
+                + " \nFecha de inicio de participacion en Espectaculos:" + this.getFechaDeInicioEspectaculo()
                 + " Entrenador: " + this.getNombreDelEntrenador() + "\n";
     }
 

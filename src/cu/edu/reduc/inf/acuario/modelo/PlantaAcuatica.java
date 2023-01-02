@@ -20,6 +20,12 @@ public class PlantaAcuatica extends EspecieAcuatica{
         return aceptacion;
     }
 
+    public String toString(){
+        return "Planta Acuática - ID: " + this.getId() + " Nombre Cientifíco: " + this.getNombreCientifico()
+                + " Familia: " + this.getFamilia() + "Cantidad de ejempalres: "
+                + this.getNumeroDeEjemplares() + "De aguas profundas: " + this.getEsDeAguasProfundas() + "\n";
+    }
+
     public long getNumeroDeEjemplares() {
         return numeroDeEjemplares;
     }

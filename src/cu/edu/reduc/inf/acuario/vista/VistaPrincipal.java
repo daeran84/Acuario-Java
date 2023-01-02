@@ -2,7 +2,7 @@ package cu.edu.reduc.inf.acuario.vista;
 
 import java.util.Scanner;
 
-public class VistaPresentadorPrincipal {
+public class VistaPrincipal {
     public int principal(){
         int opc = 0;
         System.out.println("1- Gestion");
