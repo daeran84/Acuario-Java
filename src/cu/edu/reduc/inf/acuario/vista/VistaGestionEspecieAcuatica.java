@@ -10,6 +10,7 @@ public class VistaGestionEspecieAcuatica {
 
     public int gestionEspecieAcuarica(){
         int opc = 0;
+
         System.out.println("Gestion de Especie Acuatica");
         System.out.println("1- Insertar Especie Acuatica");
         System.out.println("2- Actualizar Especie Acuatica");
@@ -20,7 +21,6 @@ public class VistaGestionEspecieAcuatica {
         opc = new Scanner(System.in).nextInt();
 
         return opc;
-
     }
 
     public int getTipoEspecie(){

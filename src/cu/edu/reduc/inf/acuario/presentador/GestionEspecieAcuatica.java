@@ -10,114 +10,114 @@ import java.text.ParseException;
 import java.util.Date;
 
 public class GestionEspecieAcuatica implements Runnable{
+    VistaGestionEspecieAcuatica vista = new VistaGestionEspecieAcuatica();
     Repositorio repo;
     public GestionEspecieAcuatica(Repositorio repositorio) {
         this.repo = repositorio;
     }
 
     public void run() {
-        VistaGestionEspecieAcuatica vistaGestionEspecieAcuatica = new VistaGestionEspecieAcuatica();
         int opc = 0;
         do {
-            opc = vistaGestionEspecieAcuatica.gestionEspecieAcuarica();
+            opc = this.vista.gestionEspecieAcuarica();
             switch (opc){
                 case 1:
                     //Insertar especie
-                    int tipoEspecie = vistaGestionEspecieAcuatica.getTipoEspecie();
+                    int tipoEspecie = this.vista.getTipoEspecie();
                     if(tipoEspecie == 1) {
                         //Animal Acuatico
-                        int id = vistaGestionEspecieAcuatica.getId();
-                        String nombre = vistaGestionEspecieAcuatica.getNombre();
-                        String nombreCientifico = vistaGestionEspecieAcuatica.getNombreCientifico();
-                        String familia = vistaGestionEspecieAcuatica.getFamilia();
-                        String habitat = vistaGestionEspecieAcuatica.HabitatNatural();
-                        int edad = vistaGestionEspecieAcuatica.getEdad();
-                        String categoria = vistaGestionEspecieAcuatica.getCategoria();
-                        boolean reproducidoEnCautiverio = vistaGestionEspecieAcuatica.getReproducidoEnCautiverio();
-                        boolean participaEnEspectaculo = vistaGestionEspecieAcuatica.getParticipaEnEspectaculos();
+                        int id = this.vista.getId();
+                        String nombre = this.vista.getNombre();
+                        String nombreCientifico = this.vista.getNombreCientifico();
+                        String familia = this.vista.getFamilia();
+                        String habitat = this.vista.HabitatNatural();
+                        int edad = this.vista.getEdad();
+                        String categoria = this.vista.getCategoria();
+                        boolean reproducidoEnCautiverio = this.vista.getReproducidoEnCautiverio();
+                        boolean participaEnEspectaculo = this.vista.getParticipaEnEspectaculos();
                         Date inicio = null;
                         String entrenador = null;
                         if (participaEnEspectaculo) {
                             try {
-                                inicio = vistaGestionEspecieAcuatica.getFechaDeInicio();
+                                inicio = this.vista.getFechaDeInicio();
                             } catch (ParseException e) {
                                 throw new RuntimeException(e);
                             }
-                            entrenador = vistaGestionEspecieAcuatica.getNombreDelEntrenador();
+                            entrenador = this.vista.getNombreDelEntrenador();
                         }
                         EspecieAcuatica animal = new AnimalAcuatico(id, nombre, nombreCientifico, familia, habitat, edad,
                                 categoria, reproducidoEnCautiverio, participaEnEspectaculo, inicio, entrenador);
-                        repo.insertarEspecieAcuatica(animal);
+                        this.repo.insertarEspecieAcuatica(animal);
                     }
                     if(tipoEspecie == 2) {
                         //Planta Acuatica
-                        int id = vistaGestionEspecieAcuatica.getId();
-                        String nombreCientifico = vistaGestionEspecieAcuatica.getNombreCientifico();
-                        String familia = vistaGestionEspecieAcuatica.getFamilia();
-                        String habitat = vistaGestionEspecieAcuatica.HabitatNatural();
-                        int cantidadDeEjemplares = vistaGestionEspecieAcuatica.getNumeroDeEjemplares();
-                        boolean deAguasProfundas = vistaGestionEspecieAcuatica.getDeAguasProfundas();
+                        int id = this.vista.getId();
+                        String nombreCientifico = this.vista.getNombreCientifico();
+                        String familia = this.vista.getFamilia();
+                        String habitat = this.vista.HabitatNatural();
+                        int cantidadDeEjemplares = this.vista.getNumeroDeEjemplares();
+                        boolean deAguasProfundas = this.vista.getDeAguasProfundas();
                         EspecieAcuatica planta = new PlantaAcuatica(id, nombreCientifico, familia, habitat,
                                 cantidadDeEjemplares, deAguasProfundas);
-                        repo.insertarEspecieAcuatica(planta);
+                        this.repo.insertarEspecieAcuatica(planta);
                     }
                     break;
 
                 case 2:
                     //Actualizar especie
-                    int id = vistaGestionEspecieAcuatica.getId();
-                    if (!repo.existeIdDeEspecie(id)){
+                    int id = this.vista.getId();
+                    if (!this.repo.existeIdDeEspecie(id)){
                         System.out.println("No hay una especie acuatica registrada con ese ID");
                         break;
                     }
-                    int ind = repo.indiceDeEspecieAcuatica(id);
-                    EspecieAcuatica especie = repo.getListaDeEspecieAcuatica().get(id);
+                    int ind = this.repo.indiceDeEspecieAcuatica(id);
+                    EspecieAcuatica especie = this.repo.getListaDeEspecieAcuatica().get(id);
                     if(especie instanceof AnimalAcuatico) {
                         //Animal Acuatico
-                        String nombre = vistaGestionEspecieAcuatica.getNombre();
-                        String nombreCientifico = vistaGestionEspecieAcuatica.getNombreCientifico();
-                        String familia = vistaGestionEspecieAcuatica.getFamilia();
-                        String habitat = vistaGestionEspecieAcuatica.HabitatNatural();
-                        int edad = vistaGestionEspecieAcuatica.getEdad();
-                        String categoria = vistaGestionEspecieAcuatica.getCategoria();
-                        boolean reproducidoEnCautiverio = vistaGestionEspecieAcuatica.getReproducidoEnCautiverio();
-                        boolean participaEnEspectaculo = vistaGestionEspecieAcuatica.getParticipaEnEspectaculos();
+                        String nombre = this.vista.getNombre();
+                        String nombreCientifico = this.vista.getNombreCientifico();
+                        String familia = this.vista.getFamilia();
+                        String habitat = this.vista.HabitatNatural();
+                        int edad = this.vista.getEdad();
+                        String categoria = this.vista.getCategoria();
+                        boolean reproducidoEnCautiverio = this.vista.getReproducidoEnCautiverio();
+                        boolean participaEnEspectaculo = this.vista.getParticipaEnEspectaculos();
                         Date inicio = null;
                         String entrenador = null;
                         if (participaEnEspectaculo) {
                             try {
-                                inicio = vistaGestionEspecieAcuatica.getFechaDeInicio();
+                                inicio = this.vista.getFechaDeInicio();
                             } catch (ParseException e) {
                                 throw new RuntimeException(e);
                             }
-                            entrenador = vistaGestionEspecieAcuatica.getNombreDelEntrenador();
+                            entrenador = this.vista.getNombreDelEntrenador();
                         }
                         EspecieAcuatica animal = new AnimalAcuatico(id, nombre, nombreCientifico, familia, habitat, edad,
                                 categoria, reproducidoEnCautiverio, participaEnEspectaculo, inicio, entrenador);
-                        repo.actualizarEspecieAcuatica(id, animal);
+                        this.repo.actualizarEspecieAcuatica(id, animal);
                     }
                     if(especie instanceof PlantaAcuatica) {
                         //Planta Acuatica
-                        String nombreCientifico = vistaGestionEspecieAcuatica.getNombreCientifico();
-                        String familia = vistaGestionEspecieAcuatica.getFamilia();
-                        String habitat = vistaGestionEspecieAcuatica.HabitatNatural();
-                        int cantidadDeEjemplares = vistaGestionEspecieAcuatica.getNumeroDeEjemplares();
-                        boolean deAguasProfundas = vistaGestionEspecieAcuatica.getDeAguasProfundas();
+                        String nombreCientifico = this.vista.getNombreCientifico();
+                        String familia = this.vista.getFamilia();
+                        String habitat = this.vista.HabitatNatural();
+                        int cantidadDeEjemplares = this.vista.getNumeroDeEjemplares();
+                        boolean deAguasProfundas = this.vista.getDeAguasProfundas();
                         EspecieAcuatica planta = new PlantaAcuatica(id, nombreCientifico, familia, habitat,
                                 cantidadDeEjemplares, deAguasProfundas);
-                        repo.actualizarEspecieAcuatica(ind, planta);
+                        this.repo.actualizarEspecieAcuatica(ind, planta);
                     }
 
                     break;
                 case 3:
                     //Eliminar especie
-                    id = vistaGestionEspecieAcuatica.getId();
-                    if (!repo.existeIdDeEspecie(id)){
+                    id = this.vista.getId();
+                    if (!this.repo.existeIdDeEspecie(id)){
                         System.out.println("No hay una especie acuatica registrada con ese ID");
                         break;
                     }
-                    ind = repo.indiceDeEspecieAcuatica(id);
-                    repo.eliminarAnimalAcuatico(ind);
+                    ind = this.repo.indiceDeEspecieAcuatica(id);
+                    this.repo.eliminarAnimalAcuatico(ind);
 
                     break;
                 case 4:

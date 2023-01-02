@@ -1,7 +1,9 @@
 package cu.edu.reduc.inf.acuario.modelo;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Entrenador {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     private String ci;
     private String nombreApellidos;
@@ -24,6 +26,13 @@ public class Entrenador {
     public boolean esCiDeEntrenador(String ci) {return this.getCi().equals(ci);}
 
     public boolean esNombreDeEntrenador(String nombre) {return this.getNombreApellidos().equals(nombre);}
+
+    public String toString(){
+        return "Entrenador - " + "CI: " + getCi() + ", Nombre: " + getNombreApellidos() + ", Nombre artístico: "
+                + this.getNombreArtistico() + ", Edad: " + this.getEdad() + ", Sexo: " + this.getSexo()
+                + ", Fecha de nacimiento: " + dateFormat.format(this.getFechaDeNacimiento()) + ", Años de experiencia: "
+                + this.getAniosDeExperiencia();
+    }
 
     // Set & Get
     public String getCi() {
