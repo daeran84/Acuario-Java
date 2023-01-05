@@ -7,10 +7,8 @@ import java.util.Objects;
 
 public class Repositorio {
     private ArrayList<EspecieAcuatica> listaDeEspecieAcuatica = new ArrayList<>();
-
-
-
     private ArrayList<Entrenador> listaEntrenadores = new ArrayList<>();
+    private ArrayList<Espectaculo> listaDeEspectaculos = new ArrayList<>();
 
     public boolean existeIdDeEspecie(int id){
         for (int i = 0; i < this.getListaDeEspecieAcuatica().size(); i++){
@@ -28,8 +26,6 @@ public class Repositorio {
         return -1;
     }
 
-
-
     public void insertarEspecieAcuatica(EspecieAcuatica especieAcuatica){
         if (!this.existeIdDeEspecie(especieAcuatica.getId())) {
             this.listaDeEspecieAcuatica.add(especieAcuatica);
@@ -38,14 +34,12 @@ public class Repositorio {
         else System.out.println("Animal con ese ID ya existe en la lista");
     }
 
-    public boolean actualizarEspecieAcuatica(int id, EspecieAcuatica especieAcuatica){ //REVISAR FUNCION
-        for (int i = 0; i < this.getListaDeEspecieAcuatica().size(); i++){
+    public void actualizarEspecieAcuatica(int id, EspecieAcuatica especieAcuatica) { //REVISAR FUNCION
+        for (int i = 0; i < this.getListaDeEspecieAcuatica().size(); i++) {
             if (this.getListaDeEspecieAcuatica().get(i).esIdDeEspecie(id)) {
-                this.listaDeEspecieAcuatica.set( i, especieAcuatica);
-                System.out.println("Animal acuatico actualizado");
+                this.listaDeEspecieAcuatica.set(i, especieAcuatica);
             }
         }
-        return false;
     }
 
     public void eliminarAnimalAcuatico(int id){
@@ -109,6 +103,9 @@ public class Repositorio {
         return listaEntrenadores;
     }
 
+    public ArrayList<Espectaculo> getListaDeEspectaculos() {
+        return listaDeEspectaculos;
+    }
 
 }
 

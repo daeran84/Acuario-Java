@@ -43,28 +43,6 @@ public class VistaGestionEntrenador {
         return new Scanner(System.in).nextLine().trim();
     }
 
-    /*public int getEdad(){
-        System.out.print("Edad: ");
-        return new Scanner(System.in).nextInt();
-    }
-
-    public String getSexo(String ci){
-        int i = (int) ci.charAt(9);
-        if (i % 2 == 0){
-            return "M";
-        }
-        return "F";
-    }
-
-    public Date getFechaDeNacimiento(String ci) throws ParseException {
-        String anno = String.valueOf(ci.charAt(0) + ci.charAt(1));
-        String mes = String.valueOf(ci.charAt(2) + ci.charAt(3));
-        String dia = String.valueOf(ci.charAt(4) + ci.charAt(5));
-
-        return fecha.parse(anno + "/" + mes + "/" + dia);
-
-    }*/
-
     public int getAniosDeExperiencia(){
         System.out.print("Años de esperiencia: ");
         return new Scanner(System.in).nextInt();
