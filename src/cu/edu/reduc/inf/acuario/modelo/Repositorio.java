@@ -1,6 +1,4 @@
 package cu.edu.reduc.inf.acuario.modelo;
-import com.sun.istack.internal.NotNull;
-import cu.edu.reduc.inf.acuario.modelo.EspecieAcuatica;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -91,6 +89,97 @@ public class Repositorio {
         }
         else {
             System.out.println("No existe un entrenador en la lista con ese CI");
+        }
+    }
+
+    // Lista Espectaculos
+
+    public int idDeEspectaculo(int codigo){
+        for (int i = 0; i < this.getListaDeEspectaculos().size(); i++){
+            if (this.getListaDeEspectaculos().get(i).getCodigo() == codigo) {
+                 return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean existeIdDeEspectaculo(int codigo){
+        for (Espectaculo espectaculo : this.getListaDeEspectaculos()){
+            if(Objects.equals(espectaculo.getCodigo(), codigo)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void insertarEspectaculo(Espectaculo espectaculo){
+        if (!this.existeIdDeEspectaculo(espectaculo.getCodigo())) {
+            this.listaDeEspectaculos.add(espectaculo);
+            System.out.println("Agregado a la lista satisfactoriamente");
+        }
+        else System.out.println("Un espectaculo con ese codigo ya existe en la lista");
+
+    }
+
+    public void actualizarEspectaculo(Espectaculo espectaculo){
+        int ind = this.idDeEspectaculo(espectaculo.getCodigo());
+        if (ind != -1){
+            this.listaDeEspectaculos.set( ind, espectaculo);
+            System.out.println("Espectaculo actualizado");
+        }
+        else System.out.println("No existe un espectaculo con ese codigo en la lista");
+    }
+
+    public void eliminarEspectaculo(int codigo){
+        int ind = this.idDeEspectaculo(codigo);
+        if (ind != -1){
+            this.listaDeEspectaculos.remove(ind);
+            System.out.println("Espectaculo eliminado");
+        }
+        else System.out.println("No existe un espectaculo con ese codigo en la lista");
+    }
+
+    // Incisos
+
+    public List<PlantaAcuatica> listaDePlantas(){
+        List<PlantaAcuatica> listaDePlantas = new ArrayList<>();
+        for (int i = 0; i < this.getListaDeEspecieAcuatica().size(); i++){
+            if (this.getListaDeEspecieAcuatica().get(i) instanceof PlantaAcuatica) {
+                listaDePlantas.add(((PlantaAcuatica)this.getListaDeEspecieAcuatica().get(i)));
+            }
+        }
+        return listaDePlantas;
+    }
+
+    public List<AnimalAcuatico> listaDeAnimales(){
+        List<AnimalAcuatico> listaDeAnimales = new ArrayList<>();
+        for (int i = 0; i < this.getListaDeEspecieAcuatica().size(); i++){
+            if (this.getListaDeEspecieAcuatica().get(i) instanceof AnimalAcuatico) {
+                listaDeAnimales.add(((AnimalAcuatico)this.getListaDeEspecieAcuatica().get(i)));
+            }
+        }
+        return listaDeAnimales;
+    }
+
+    public String plantaMasRepresentada(){
+        float indiceMayor = 0;
+        int ind = 0;
+        List<PlantaAcuatica> list = this.listaDePlantas();
+        for (int i = 0; i< list.size(); i++){
+            if (indiceMayor < list.get(i).indiceDeAceptacion()){
+                indiceMayor = list.get(i).indiceDeAceptacion();
+                ind = i;
+            }
+        }
+        return listaDePlantas().get(ind).getFamilia();
+    }
+
+    public void animalesDelEntrenador(String ci){
+        String entrenador = this.getListaEntrenadores().get(this.indEntrenador(ci)).getNombreApellidos();
+        for( AnimalAcuatico animal : this.listaDeAnimales()){
+            if (Objects.equals(animal.getNombreDelEntrenador(), entrenador)){
+                System.out.println(animal);
+            }
         }
     }
 

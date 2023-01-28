@@ -2,12 +2,11 @@ package cu.edu.reduc.inf.acuario.vista;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class VistaGestionEspectaculo {
     SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
+    Scanner scanner = new Scanner(System.in);
 
     public int gestionEspectaculo(){
 
@@ -22,8 +21,12 @@ public class VistaGestionEspectaculo {
     }
 
     public int getCodigo(){
-        System.out.print("Codigo: ");
-        return new Scanner(System.in).nextInt();
+        try {
+            System.out.print("Codigo: ");
+            return new Scanner(System.in).nextInt();
+        }catch (InputMismatchException e){
+            throw new RuntimeException(e);
+        }
     }
 
     public String getnombre(){
@@ -42,14 +45,25 @@ public class VistaGestionEspectaculo {
     }
 
     public String getPublico(){
-        System.out.print("Publico: ");
+        System.out.print("Publico(niños, jóvenes, adultos o todas las edades): ");
         return new Scanner(System.in).nextLine().toLowerCase().trim();
     }
-
-    /*public List<String> getAnimalesQueEntrena(List<String> animales){
-        System.out.println();
+    public List<String> getAnimalesQueParticipan(){
+        int opcAnimales = 0;
+        List<String> animales = new ArrayList<>();
+        do {
+            System.out.println("1 - Agregar animal acuatico");
+            System.out.println("2 - Salir");
+            opcAnimales = scanner.nextInt();
+            switch (opcAnimales){
+                case 1:
+                    System.out.print("Nombre del animal acuatico: ");
+                    animales.add(scanner.nextLine());
+                    break;
+                case 2:
+                    return animales;
+            }
+        }while (true);
     }
-    private List<String> animalesQueEntrena;*/
-
 
 }

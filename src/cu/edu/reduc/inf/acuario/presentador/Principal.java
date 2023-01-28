@@ -12,6 +12,7 @@ public class Principal implements Runnable{
     GestionEspecieAcuatica gestionEspecieAcuatica = new GestionEspecieAcuatica(repositorio);
     GestionEntrenador gestionEntrenador = new GestionEntrenador(repositorio);
     GestionEspectaculo gestionEspectaculo = new GestionEspectaculo(repositorio);
+    GestionReportes gestionReportes = new GestionReportes(repositorio);
     public void run() {
         // Cargando datos iniciales
         try {
@@ -119,6 +120,7 @@ public class Principal implements Runnable{
                     }while (opcGestion != 4);
                 case 2:
                     //Reportes
+                    this.gestionReportes.run();
                     break;
                 case 3:
                     //Salir

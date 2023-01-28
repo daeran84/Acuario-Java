@@ -1,25 +1,33 @@
 package cu.edu.reduc.inf.acuario.modelo;
 
-import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class Espectaculo {
+
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     private int codigo;
     private String nombre;
     private Date fechaDeInicio;
     private int duracion;
     private String publico;
-    private List<String> animalesQueEntrena;
+    private List<String> animalesQueParticipan;
 
-    public Espectaculo(int codigo, String nombre, Date fechaDeInicio, int duracion, String publico, List<String> animalesQueEntrena) {
+    public Espectaculo(int codigo, String nombre, Date fechaDeInicio, int duracion, String publico, List<String> animalesQueParticipan) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.fechaDeInicio = fechaDeInicio;
         this.duracion = duracion;
         this.publico = publico;
-        this.animalesQueEntrena = animalesQueEntrena;
+        this.animalesQueParticipan = animalesQueParticipan;
+    }
+
+    public String toString(){
+        return "Espectaculo - " + "Codigo: " + this.getCodigo() + ", Nombre: " + this.getNombre() + ", Fecha de inicio: "
+                + dateFormat.format(this.getFechaDeInicio()) + ", Duracion: " + this.getDuracion() + ", " +
+                "Publico: " + this.getPublico() + ",\n Animales que participan: " + this.getAnimalesQueParticipan();
     }
 
     public int getCodigo() {
@@ -62,11 +70,11 @@ public class Espectaculo {
         this.publico = value;
     }
 
-    public List<String> getAnimalesQueEntrena() {
-        return animalesQueEntrena;
+    public List<String> getAnimalesQueParticipan() {
+        return animalesQueParticipan;
     }
 
-    public void setAnimalesQueEntrena(List<String> value) {
-        this.animalesQueEntrena = value;
+    public void setAnimalesQueParticipan(List<String> value) {
+        this.animalesQueParticipan = value;
     }
 }
